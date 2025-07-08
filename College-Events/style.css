@@ -1,0 +1,71 @@
+/* General styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #0d6efd !important;
+  border-bottom: 2px solid #0d6efd;
+}
+
+/* Hero Section */
+header {
+  background: linear-gradient(to right, #0d6efd, #0a58ca);
+  color: white;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header p {
+  font-size: 1.25rem;
+}
+
+/* Section titles */
+h2 {
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* Member Images */
+.rounded-circle {
+  border: 3px solid #0d6efd;
+  transition: transform 0.3s ease-in-out;
+}
+.rounded-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background-color: #212529;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Gallery */
+.gallery-img {
+  transition: transform 0.3s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carousel-inner img {
+  max-height: 400px;
+  object-fit: cover;
+}
