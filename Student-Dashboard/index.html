@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2 class="brand">🎓 MyCampus</h2>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Students</a>
+        <a href="#">Analytics</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1>Student Management Dashboard</h1>
+        <button class="btn-add" onclick="openModal()">+ Add Student</button>
+      </header>
+
+      <section class="stats">
+        <div class="card" id="total-students">👥 Total: 0</div>
+        <div class="card" id="avg-marks">📊 Avg Marks: 0</div>
+        <div class="card" id="pass-rate">✅ Pass Rate: 0%</div>
+      </section>
+
+      <section class="analytics-section" id="analytics-section" style="display:none; padding: 20px;">
+        <h2 style="text-align: center; margin-bottom: 30px;">Department-wise Analytics</h2>
+        <div style="display: flex; justify-content: space-between; gap: 40px;">
+          <div style="flex: 1;">
+            <canvas id="barChart" style="width: 100%; height: 400px;"></canvas>
+          </div>
+          <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+            <canvas id="pieChart" style="width: 300px; height: 300px;"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="filters">
+        <input type="text" id="search" placeholder="Search by name or reg no..." />
+        <select id="filter-dept">
+          <option value="">All Departments</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="EEE">EEE</option>
+          <option value="MECH">MECH</option>
+        </select>
+        <select id="filter-year">
+          <option value="">All Years</option>
+          <option value="1">1st</option>
+          <option value="2">2nd</option>
+          <option value="3">3rd</option>
+          <option value="4">4th</option>
+        </select>
+      </section>
+
+      <section class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Reg No</th>
+              <th>Department</th>
+              <th>Year</th>
+              <th>Marks</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="student-table-body">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="student-modal">
+    <div class="modal-content">
+      <h2 id="modal-title">Add Student</h2>
+      <form id="student-form">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="regNo" placeholder="Registration No" required />
+        <input type="text" id="dept" placeholder="Department" required />
+        <input type="number" id="year" placeholder="Year (1-4)" min="1" max="4" required />
+        <input type="number" id="marks" placeholder="Marks (0-100)" min="0" max="100" required />
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
